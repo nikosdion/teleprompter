@@ -1,0 +1,187 @@
+:root {
+    color-scheme: light;
+    --body-bg: #ffffff;
+    --body-fg: #000000;
+    --gradient-opaque: rgba(255,255,255, 0.8);
+    --gradient-transparent: rgba(255,255,255, 0.0);
+    --selector-grid: rgba(0,0,0,0.2);
+    --selector-grid-alt-bg: #f0f0f0;
+    --link-color: green;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --body-bg: #222220;
+        --body-fg: #efefef;
+        --gradient-opaque: rgba(0,0,0, 0.83);
+        --gradient-transparent: rgba(0,0,0, 0.0);
+        --selector-grid: rgba(255,255,255,0.4);
+        --selector-grid-alt-bg: #333333;
+        --link-color: #e0efef;
+    }
+}
+
+body {
+    background-color: var(--body-bg);
+    color: var(--body-fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+a {
+    color: var(--link-color);
+}
+
+.touchLink {
+    display: block;
+    padding: .65em .5em;
+}
+
+.touchLink:first-of-type {
+    border-top: thin solid var(--selector-grid);
+}
+
+.touchLink:nth-of-type(even) {
+    background-color: var(--selector-grid-alt-bg);
+}
+
+.touchLink + .touchLink {
+    border-top: thin solid var(--selector-grid);
+}
+
+.touchLink:last-of-type {
+    border-bottom: thin solid var(--selector-grid);
+}
+
+
+/*  */
+
+#outerContainer {
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - 24px);
+    font-size: 300%;
+}
+
+#scriptContainer {
+    transform: scale(1, -1);
+    margin-block-start: auto;
+    margin-block-end: auto;
+    height: 100%;
+    width: min(20em, 100vw);
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+
+#script {
+    position: absolute;
+    z-index: 10;
+    width: calc(100% - 1em);
+    line-height: 1.5;
+    text-align: justify;
+}
+
+#marker {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    top: calc(50% - 1em);
+}
+
+#modeIndicator {
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    color: lime;
+}
+
+#overlay {
+    position: absolute;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+            to top,
+            var(--gradient-opaque) 25%,
+            var(--gradient-transparent) 45% 60%,
+            var(--gradient-opaque) 80%
+    );
+}
+
+#helpContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(19,22,63,0.7);
+}
+
+#help {
+    position: absolute;
+    width: calc(90vw - 2em);
+    height: calc(90vh - 2em);
+    top: 5vh;
+    left: 5vh;
+    border-radius: 1em;
+    padding: 1em;
+    font-size: 150%;
+    background: var(--body-bg);
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+#help h3 {
+    padding: 0;
+    margin: 0 0 .5em 0;
+}
+
+#help .helpColumns {
+    display: flex;
+    flex-direction: row;
+    gap: .5em;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#help div.helpCell {
+    display: flex;
+    flex-direction: row;
+    gap: .5em;
+    align-items: center;
+    margin-bottom: .25em;
+}
+
+#help .helpModeZero,
+#help .helpModeOne{
+    padding: 0.5em;
+    border-radius: .5em;
+    border: 2px solid lime;
+    margin: .5em 0;
+}
+
+#help .helpModeOne {
+    border-color: red;
+}
+
+#help .helpModeZero > .helpCell:nth-child(1),
+#help .helpModeOne > .helpCell:nth-child(1)
+{
+    margin-bottom: .75em;
+}
+
+#help .helpModeZero > .helpCell:nth-child(1) span:nth-child(2),
+#help .helpModeOne > .helpCell:nth-child(1) span:nth-child(2){
+    font-weight: bold;
+}
+
+#help .helpModeZero > .helpCell > .fa
+{
+    color: lime;
+}
+
+#help .helpModeOne > .helpCell > .fa
+{
+    color: red;
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+		Custom Teleprompter
+	</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://unpkg.com/keyboard-css@1.2.4/dist/css/main.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<script src="scroller.js" type="application/ecmascript"></script>
+</head>
+<body>
+	<div id="outerContainer">
+		<div id="scriptContainer">
+			<div id="overlay"></div>
+			<div id="marker">
+				<span class="fa fa-arrow-left"></span>
+			</div>
+			<div id="modeSelect">
+				<span id="modeIndicator" class="fa fa-gauge"></span>
+			</div>
+			<div id="script"></div>
+		</div>
+	</div>
+	<div id="helpContainer" style="display: none">
+		<div id="help">
+			<div class="helpColumns">
+				<div class="helpCell">
+					<kbd class="kbc-button">↵</kbd>
+					<span>Mode Toggle</span>
+				</div>
+				<div class="helpCell">
+					<kbd class="kbc-button">F1</kbd>
+					<span>Toggle Help</span>
+				</div>
+			</div>
+
+			<div class="helpColumns">
+				<div class="helpModeZero">
+					<div class="helpCell">
+						<span class="fa fa-gauge"></span>
+						<span>Normal Mode</span>
+					</div>
+
+					<div class="helpCell">
+						<kbd class="kbc-button">␣</kbd>
+						<span>Start/Pause</span>
+					</div>
+					<div class="helpCell">
+						<kbd class="kbc-button">↓</kbd>
+						<span>Line Down</span>
+					</div>
+					<div class="helpCell">
+						<kbd class="kbc-button">↑</kbd>
+						<span>Line Up</span>
+					</div>
+					<div class="helpCell">
+						<kbd class="kbc-button">←</kbd>
+						<span>Slower</span>
+					</div>
+					<div class="helpCell">
+						<kbd class="kbc-button">→</kbd>
+						<span>Faster</span>
+					</div>
+				</div>
+				<div class="helpModeOne">
+					<div class="helpCell">
+						<span class="fa fa-text-height"></span>
+						<span>Settings Mode</span>
+					</div>
+
+					<div class="helpCell">
+						<kbd class="kbc-button">␣</kbd>
+						<span>Text Align</span>
+					</div>
+					<div class="helpCell">
+						<kbd class="kbc-button">↓</kbd>
+						<span>Smaller</span>
+					</div>
+					<div class="helpCell">
+						<kbd class="kbc-button">↑</kbd>
+						<span>Bigger</span>
+					</div>
+					<div class="helpCell">
+						<kbd class="kbc-button">←</kbd>
+						<span>Line Height -</span>
+					</div>
+					<div class="helpCell">
+						<kbd class="kbc-button">→</kbd>
+						<span>Line Height +</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="helpColumns">
+				<div class="helpCell">
+					<kbd class="kbc-button">Home</kbd>
+					<span>Start of script</span>
+				</div>
+				<div class="helpCell">
+					<kbd class="kbc-button">End</kbd>
+					<span>End of script</span>
+				</div>
+			</div>
+			<div class="helpColumns">
+				<div class="helpCell">
+					<kbd class="kbc-button">PgUp</kbd>
+					<span>Page Up</span>
+				</div>
+				<div class="helpCell">
+					<kbd class="kbc-button">PgDn</kbd>
+					<span>Page Down</span>
+				</div>
+			</div>
+			<div class="helpColumns">
+				<div class="helpCell">
+					<kbd class="kbc-button">-</kbd>
+					<span>Smaller</span>
+				</div>
+				<div class="helpCell">
+					<kbd class="kbc-button">+</kbd>
+					<span>Bigger</span>
+				</div>
+			</div>
+			<div class="helpColumns">
+				<div class="helpCell">
+					<kbd class="kbc-button">&lt;</kbd>
+					<span>Line Height -</span>
+				</div>
+				<div class="helpCell">
+					<kbd class="kbc-button">&gt;</kbd>
+					<span>Line Height +</span>
+				</div>
+			</div>
+			<div class="helpColumns">
+				<div class="helpCell">
+					<kbd class="kbc-button">H</kbd>
+					<span>Slower</span>
+				</div>
+				<div class="helpCell">
+					<kbd class="kbc-button">L</kbd>
+					<span>Faster</span>
+				</div>
+			</div>
+			<div class="helpColumns">
+				<div class="helpCell">
+					<kbd class="kbc-button">J</kbd>
+					<span>Line Up</span>
+				</div>
+				<div class="helpCell">
+					<kbd class="kbc-button">K</kbd>
+					<span>Line Down</span>
+				</div>
+			</div>
+			<div class="helpColumns">
+				<div class="helpCell">
+					<kbd class="kbc-button">/</kbd>
+					<span>Mirror On/Off</span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
