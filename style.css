@@ -81,11 +81,39 @@ a {
     text-align: justify;
 }
 
+#script p {
+    padding: 0;
+    margin: .25em;
+    border-bottom: thick dotted cornflowerblue;
+}
+
+#script h1 {
+    font-size: 100%;
+    margin: 0 0 .5em 0;
+    padding: 0 ;
+    color: firebrick;
+}
+
+#script h2 {
+    font-size: 100%;
+    margin: 0 0 .5em .5em;
+    padding: 0 ;
+    color: darkolivegreen;
+}
+
+#script h3 {
+    font-size: 100%;
+    margin: 0 0 .5em 1em;
+    padding: 0 ;
+    color: midnightblue;
+}
+
 #marker {
     position: absolute;
     z-index: 10;
     right: 0;
     top: calc(50% - 1em);
+    color: fuchsia;
 }
 
 #modeIndicator {
